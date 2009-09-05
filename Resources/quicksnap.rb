@@ -1,6 +1,6 @@
 require 'fileutils'
-require 'RMagick'
-include Magick
+#require 'RMagick'
+#include Magick
 
 SNAPSHOTS_DIR = Titanium.App.appURLToPath("app://snapshots")
 FileUtils.mkdir_p(SNAPSHOTS_DIR)
@@ -80,11 +80,12 @@ def drag(event)
 end
 
 def crop_area
-  snapshot = Magick::ImageList.new($snapshot_filename)
-  cropped = snapshot.crop($top, $left, $width, $height)
-  cropped_filename = File.join(SNAPSHOTS_DIR, "snapshot_"+rand(10000).to_s+"_cropped.png")
+	# TODO: finish cropping code
+  #snapshot = Magick::ImageList.new($snapshot_filename)
+  #cropped = snapshot.crop($top, $left, $width, $height)
+  #cropped_filename = File.join(SNAPSHOTS_DIR, "snapshot_"+rand(10000).to_s+"_cropped.png")
 
-  cropped.write(cropped_filename)
-  window.alert("file://#{cropped_filename}")
-  document.getElementById('snapshot').src = "file://#{cropped_filename}"
+  #cropped.write(cropped_filename)
+  #window.alert("file://#{cropped_filename}")
+  #document.getElementById('snapshot').src = "file://#{cropped_filename}"
 end
